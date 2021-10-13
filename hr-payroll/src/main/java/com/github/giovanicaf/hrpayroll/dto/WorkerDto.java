@@ -1,4 +1,4 @@
-package com.github.giovanicaf.hrpayroll.entities.dto;
+package com.github.giovanicaf.hrpayroll.dto;
 
 import java.io.Serializable;
 
