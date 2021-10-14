@@ -6,6 +6,7 @@ import com.github.giovanicaf.hrworker.service.WorkerService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,13 +23,23 @@ public class WorkerResource {
 
 	private static Logger logger = LoggerFactory.getLogger( WorkerResource.class );
 
+	@Value("${test.config}")
+	private String testConfig;
+
 	public final Environment env;
 	public final WorkerRepository repository;
 	public final WorkerService service;
 
+	@GetMapping(value = "/configs")
+	public ResponseEntity<Void> getConfigs(){
+
+		logger.info( "CONFIG = " + testConfig );
+		return ResponseEntity.noContent().build();
+	}
+
 	@GetMapping
-	public ResponseEntity<List<WorkerDto>> findAll(){		
-		
+	public ResponseEntity<List<WorkerDto>> findAll(){
+
 		List<WorkerDto> lista = service.findByWorker( repository.findAll() );
 		return ResponseEntity.ok(lista);
 	}
