@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 public class WorkerService {
 
 	private final WorkerMapper workertMapper;
-	
+
 	public List<WorkerDto> findByWorker(List<Worker> worker) {
 		return workertMapper.toListWorkerDto(worker);
 	}
@@ -23,7 +23,5 @@ public class WorkerService {
 	public WorkerDto findByWorker(Worker worker) {
 		return workertMapper.toWorkerDto(worker);
 	}
-
-
 
 }
