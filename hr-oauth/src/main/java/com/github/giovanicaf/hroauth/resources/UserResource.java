@@ -1,6 +1,6 @@
 package com.github.giovanicaf.hroauth.resources;
 
-import com.github.giovanicaf.hroauth.dto.UserDto;
+import com.github.giovanicaf.hroauth.entities.User;
 import com.github.giovanicaf.hroauth.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +18,9 @@ public class UserResource {
     private UserService service;
 
     @GetMapping(value = "/search")
-    public ResponseEntity<UserDto> fundByEmail(@RequestParam String email){
+    public ResponseEntity<User> fundByEmail(@RequestParam String email){
         try {
-            UserDto dto = service.findByEmail(email);
+            User dto = service.findByEmail(email);
             return ResponseEntity.ok(dto);
         }catch (IllegalArgumentException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

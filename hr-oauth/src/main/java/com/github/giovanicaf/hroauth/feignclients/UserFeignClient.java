@@ -1,6 +1,6 @@
 package com.github.giovanicaf.hroauth.feignclients;
 
-import com.github.giovanicaf.hroauth.dto.UserDto;
+import com.github.giovanicaf.hroauth.entities.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface UserFeignClient {
 
     @GetMapping(value = "/search")
-    ResponseEntity<UserDto> findByEmail(@RequestParam String email);
+    ResponseEntity<User> findByEmail(@RequestParam String email);
 }
