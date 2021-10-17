@@ -1,6 +1,6 @@
-package com.github.giovanicaf.hruser.dto;
+package com.github.giovanicaf.hroauth.dto;
 
-import com.github.giovanicaf.hruser.entities.Role;
+
 import lombok.*;
 
 import java.io.Serializable;
@@ -20,5 +20,5 @@ public class UserDto implements Serializable {
     private String email;
     private String password;
 
-    private Set<Role> roles = new HashSet<>();
+    private Set<RoleDto> roles = new HashSet<>();
 }
